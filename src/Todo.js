@@ -58,7 +58,7 @@ function Todo(props) {
             <List>
                 <ListItem>
                     <ListItemText primary={props.todo.todo} secondary='Deadline ⏲'></ListItemText>
-                    <EditIcon onClick={e => setOpen(true)} color="action" className={classes.posiEdit}> Edit </EditIcon> &nbsp;&nbsp;&nbsp;
+                    <EditIcon onClick={e => setOpen(true)} color="action" className={classes.posiEdit}></EditIcon> &nbsp;&nbsp;&nbsp;
                     <DeleteForeverSharpIcon color="secondary" onClick={event => db.collection('todos').doc(props.todo.id).delete()} className={classes.posiDel}> Delete Me</DeleteForeverSharpIcon>
                 </ListItem>    
             </List>
