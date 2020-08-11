@@ -18,9 +18,9 @@ import firebase from "firebase";
 
 const useStyles = makeStyles((theme) => ({
   table: {
-    maxWidth: 500,
+    maxWidth: 475,
     alignItems: "center",
-    border: 1,
+    borderBlock: 1,
   },
 }));
 
@@ -81,21 +81,21 @@ function App() {
         </Button>
       </form>
       <h2>✅ To-Do List</h2>
-      <Table className={classes.table}>
+      <Table className={classes.table} align="center">
         <TableHead>
           <TableRow>
-            <TableCell>TODO</TableCell>
+            <TableCell align="left">TODO</TableCell>
             <TableCell align="left">Operation</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           <TableRow>
-            <TableCell>
-              <ul>
+            <TableCell align="left">
+              
                 {todos.map((todo) => (
                   <Todo todo={todo} />
                 ))}
-              </ul>
+              
             </TableCell>
             <TableCell>
 

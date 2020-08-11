@@ -16,12 +16,13 @@ const useStyles = makeStyles((theme) => ({
     },
     posiEdit : {
         position: "absolute",
-        marginLeft: 210,
+        marginLeft: 310,
     },
     posiDel : {
         position: "absolute",
-        marginLeft: 240,
+        marginLeft: 340,
     },
+    
 }));
 
 function Todo(props) {
@@ -57,7 +58,7 @@ function Todo(props) {
         <div>
             <List>
                 <ListItem>
-                    <ListItemText primary={props.todo.todo} secondary='Deadline ⏲'></ListItemText>
+                    <ListItemText primary={props.todo.todo} secondary='Deadline ⏲' className={classes.posiItem}></ListItemText>
                     <EditIcon onClick={e => setOpen(true)} color="action" className={classes.posiEdit}></EditIcon> &nbsp;&nbsp;&nbsp;
                     <DeleteForeverSharpIcon color="secondary" onClick={event => db.collection('todos').doc(props.todo.id).delete()} className={classes.posiDel}> Delete Me</DeleteForeverSharpIcon>
                 </ListItem>    
