@@ -59,12 +59,12 @@ function App() {
   return (
     <div className="App">
     
-      <h1>Welcome to the todo list website</h1>
+      <h1>Welcome to the To-Do list website</h1>
       
 
       <form>
         <FormControl>
-          <InputLabel>Write a todo here</InputLabel>
+          <InputLabel>Write a To-Do here</InputLabel>
           <Input
             value={input}
             onChange={(event) => setInput(event.target.value)}
@@ -80,7 +80,7 @@ function App() {
           Add
         </Button>
       </form>
-      <h2>Todo List</h2>
+      <h2>✅ To-Do List</h2>
       <Table className={classes.table}>
         <TableHead>
           <TableRow>
