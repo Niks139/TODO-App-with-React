@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { List, ListItem, ListItemText, Button, Modal, makeStyles, Input, Table, TableHead, TableRow, TableCell } from '@material-ui/core';
+import { List, ListItem, ListItemText, Button, Modal, makeStyles, Input} from '@material-ui/core';
 import db from './firebase';
 import DeleteForeverSharpIcon from '@material-ui/icons/DeleteForeverSharp';
 import EditIcon from '@material-ui/icons/Edit';
@@ -30,9 +30,7 @@ function Todo(props) {
     const [open, setOpen] = useState(false);
     const [input, setInput] = useState('');
 
-    const handleOpen = () => {
-        setOpen(true);
-    }
+    
 
     //Updating the TODO
     const updateTodo = () => {
@@ -49,9 +47,9 @@ function Todo(props) {
             onClose={e => setOpen(false)}
         > 
         <div className={classes.paper}>
-            <h1>Modal pop-up</h1>
+            <h1>Update your To-Do</h1>
             <Input value={input} placeholder={props.todo.todo} onChange={event => setInput(event.target.value)} />
-            <Button onClick={updateTodo}> Update TODO</Button>
+            <Button onClick={updateTodo} color="primary" disabled={!input}> Update TODO</Button>
         </div>
 
         </Modal>

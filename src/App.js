@@ -10,6 +10,10 @@ import {
   TableCell,
   makeStyles,
   TableBody,
+  Typography,
+  createMuiTheme,
+  ThemeProvider,
+
 } from "@material-ui/core";
 import "./App.css";
 import Todo from "./Todo";
@@ -23,6 +27,22 @@ const useStyles = makeStyles((theme) => ({
     borderBlock: 1,
   },
 }));
+
+const theme = createMuiTheme({
+  typography: {
+    h3: {
+      fontSize: 54,
+      fontFamily: "Alex Brush"
+    },
+    h4: {
+      fontFamily: "Caveat, cursive"
+    },
+    button: {
+      fontStyle: "italic"
+    }
+  }
+});
+
 
 function App() {
   const [todos, setTodos] = useState([]); //Initial todo will be empty
@@ -58,10 +78,8 @@ function App() {
 
   return (
     <div className="App">
-    
-      <h1>Welcome to the To-Do list website</h1>
-      
-
+      <ThemeProvider theme={theme}>
+        <Typography variant="h3">Welcome to the To-Do list website</Typography>
       <form>
         <FormControl>
           <InputLabel>Write a To-Do here</InputLabel>
@@ -78,9 +96,9 @@ function App() {
           disabled={!input}
         >
           Add
-        </Button>
+        </Button><br></br> <br></br>
       </form>
-      <h2>✅ To-Do List</h2>
+      <Typography variant="h4"><span role="img" aria-label="Check"> ✅</span> To-Do List</Typography>
       <Table className={classes.table} align="center">
         <TableHead>
           <TableRow>
@@ -103,6 +121,7 @@ function App() {
           </TableRow>
         </TableBody>
       </Table>
+      </ThemeProvider>
     </div>
   );
 }
