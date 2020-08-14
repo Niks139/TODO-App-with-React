@@ -9,11 +9,9 @@ import {
   TableHead,
   TableCell,
   makeStyles,
-  TableBody,
   Typography,
   createMuiTheme,
   ThemeProvider,
-
 } from "@material-ui/core";
 import "./App.css";
 import Todo from "./Todo";
@@ -22,9 +20,13 @@ import firebase from "firebase";
 
 const useStyles = makeStyles((theme) => ({
   table: {
-    maxWidth: 475,
+    maxWidth: "50%",
     alignItems: "center",
     borderBlock: 1,
+    marginTop: 10,
+  },
+  tCell: {
+    width: "50%",
   },
 }));
 
@@ -32,17 +34,16 @@ const theme = createMuiTheme({
   typography: {
     h3: {
       fontSize: 54,
-      fontFamily: "Alex Brush"
+      fontFamily: "Alex Brush",
     },
     h4: {
-      fontFamily: "Caveat, cursive"
+      fontFamily: "Caveat, cursive",
     },
     button: {
-      fontStyle: "italic"
-    }
-  }
+      fontStyle: "italic",
+    },
+  },
 });
-
 
 function App() {
   const [todos, setTodos] = useState([]); //Initial todo will be empty
@@ -80,47 +81,48 @@ function App() {
     <div className="App">
       <ThemeProvider theme={theme}>
         <Typography variant="h3">Welcome to the To-Do list website</Typography>
-      <form>
-        <FormControl>
-          <InputLabel>Write a To-Do here</InputLabel>
-          <Input
-            value={input}
-            onChange={(event) => setInput(event.target.value)}
-          />
-        </FormControl>
-        <Button
-          type="submit"
-          onClick={addTodo}
-          variant="contained"
-          color="primary"
-          disabled={!input}
-        >
-          Add
-        </Button><br></br> <br></br>
-      </form>
-      <Typography variant="h4"><span role="img" aria-label="Check"> ✅</span> To-Do List</Typography>
-      <Table className={classes.table} align="center">
-        <TableHead>
-          <TableRow>
-            <TableCell align="left">TODO</TableCell>
-            <TableCell align="left">Operation</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          <TableRow>
-            <TableCell align="left">
-              
-                {todos.map((todo) => (
-                  <Todo todo={todo} />
-                ))}
-              
-            </TableCell>
-            <TableCell>
-
-            </TableCell>
-          </TableRow>
-        </TableBody>
-      </Table>
+        <form>
+          <FormControl>
+            <InputLabel>Write a To-Do here</InputLabel>
+            <Input
+              value={input}
+              onChange={(event) => setInput(event.target.value)}
+            />
+          </FormControl>
+          <Button
+            type="submit"
+            onClick={addTodo}
+            variant="contained"
+            color="primary"
+            disabled={!input}
+          >
+            Add
+          </Button>
+          <br></br> <br></br>
+        </form>
+        <Typography variant="h4">
+          <span role="img" aria-label="Check">
+            ✅
+          </span>
+          To-Do List
+        </Typography>
+        <Table className={classes.table} align="center" border="1">
+          <TableHead>
+            <TableRow>
+              <TableCell className={classes.tCell} align="center">
+                TODO
+              </TableCell>
+              <TableCell className={classes.tCell} align="center">
+                Operation
+              </TableCell>
+            </TableRow>
+          </TableHead>
+        </Table>
+        <div align="center">
+          {todos.map((todo) => (
+            <Todo todo={todo} />
+          ))}
+        </div>
       </ThemeProvider>
     </div>
   );
