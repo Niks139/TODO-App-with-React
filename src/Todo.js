@@ -72,13 +72,13 @@ function Todo(props) {
       </Modal>
       <Table className={classes.twidth}>
         <TableRow>
-          <TableCell className={classes.tcell} align="center">
+          <TableCell className={classes.tCell} align="center">
             <ListItemText
               primary={props.todo.todo}
               secondary="Deadline ⏲"
             ></ListItemText>
           </TableCell>
-          <TableCell className={classes.tcell} align="center">
+          <TableCell className={classes.tCell} align="center">
             <EditIcon onClick={(e) => setOpen(true)} color="action"></EditIcon>
             <DeleteForeverSharpIcon
               color="secondary"
